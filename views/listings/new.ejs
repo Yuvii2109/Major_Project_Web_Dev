@@ -1,0 +1,107 @@
+<!-- views listings new.ejs code -->
+
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <!-- The page is assumed to be divided into 12 columns -->
+            <!-- Toh basically hmne kra ky hai ki hmne 12 main se 8 column apni 
+            body ko de diye or dono sides pr 2-2 column ka gap chodh diya -->
+            <br> <br>
+            <h1><b><u><i>Create a New Listing -</i></u></b></h1>
+            <br> <br>
+            <form method="post" 
+            action="/listings" 
+            class="needs-validation" 
+            novalidate enctype="multipart/form-data">
+                <div>
+                    <label for="title" class="form-label">
+                        <b><u><i>Title -</i></u></b>
+                    </label>
+                    <input type="text" 
+                    name="listing[title]" 
+                    id="title" 
+                    class="form-control"
+                    required>
+                    <div class="valid-feedback">Filled!</div>
+                    <div class="invalid-feedback">Invalid Input!</div>
+                </div>
+                <br><br>
+                <div>
+                    <label for="description" class="form-label">
+                        <b><u><i>Description -</i></u></b>
+                    </label>
+                    <textarea 
+                    name="listing[description]" 
+                    id="description" 
+                    class="form-control"
+                    required></textarea>
+                    <div class="valid-feedback">Filled!</div>
+                    <div class="invalid-feedback">Invalid Input!</div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="price" class="form-label">
+                            <b><u><i>Price -</i></u></b>
+                        </label>
+                        <input type="number" 
+                        name="listing[price]" 
+                        id="price" 
+                        class="form-control"
+                        required>
+                        <div class="valid-feedback">Filled!</div>
+                        <div class="invalid-feedback">Invalid Input!</div>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="location" class="form-label">
+                            <b><u><i>Location -</i></u></b>
+                        </label>
+                        <input type="text" 
+                        name="listing[location]" 
+                        id="location" 
+                        class="form-control"
+                        required>
+                        <div class="valid-feedback">Filled!</div>
+                        <div class="invalid-feedback">Invalid Input!</div>
+                    </div>
+                </div>
+                <br><br>
+                <div>
+                    <label for="country" class="form-label">
+                        <b><u><i>Country -</i></u></b>
+                    </label>
+                    <input type="text" 
+                    name="listing[country]" 
+                    id="country" 
+                    class="form-control"
+                    required>
+                    <div class="valid-feedback">Filled!</div>
+                    <div class="invalid-feedback">Invalid Input!</div>
+                </div>
+                <br><br>
+                <div>
+                    <label for="image" class="form-label">
+                        <b><u><i>Image -</i></u></b>
+                    </label>
+                    <!-- <input type="file" 
+                    name="image" 
+                    id="image" 
+                    required
+                    placeholder="Enter image URL here...">
+                    <br><br> Yeh toh alg hogya hme URL ke liye type text hi rkhna hoga -->
+                    <input type="file" 
+                    name="listing[image]" 
+                    id="image" 
+                    class="form-control"
+                    required
+                    placeholder="Enter image URL here...">
+                    <div class="valid-feedback">Filled!</div>
+                    <div class="invalid-feedback">Invalid Input!</div>
+                </div>
+                <br><br> 
+                <button class="btn btn-dark">Add</button>
+            </form>
+        </div>
+    </div>
+</body>

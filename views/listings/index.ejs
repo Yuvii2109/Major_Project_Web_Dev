@@ -1,0 +1,158 @@
+<!-- views listings index.ejs code -->
+
+<style>
+    #filters{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .filter{
+        text-align: center;
+        margin-right: 2rem;
+        opacity: 0.7;
+    }
+    .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+    .filter p{
+        font-size: 0.8rem;
+    }
+    .filter i{
+        font-size: 1.2rem;
+    }
+    .tax{
+        display: none;
+    }
+    .tax-toggle{
+        border: 1px solid grey;
+        border-radius: 1rem;
+        height: 2.5rem;
+        padding: 0.5rem;
+        align-items: center;
+        align-content: center;
+    }
+</style>
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div id="filters">
+        <div class="filter">
+            <div>
+                <i class="fa-solid fa-fire"></i>
+            </div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div>
+                <i class="fa-solid fa-bed"></i>
+            </div>
+            <p>Room</p>
+        </div>
+        <div class="filter">
+            <div>
+                <i class="fa-solid fa-mountain-city"></i>
+            </div>
+            <p>Amazing Views</p>
+        </div>
+        <div class="filter">
+            <div>
+                <i class="fa-solid fa-person-hiking"></i>
+            </div>
+            <p>Hiking</p>
+        </div>
+        <div class="filter">
+            <div>
+                <i class="fa-solid fa-umbrella-beach"></i>
+            </div>
+            <p>Beach Views</p>
+        </div>
+        <div class="filter">
+            <div>
+                <i class="fa-brands fa-fort-awesome"></i>
+            </div>
+            <p>Castle</p>
+        </div>
+        <div class="filter">
+            <div>
+                <i class="fa-solid fa-plane-departure"></i>
+            </div>
+            <p>Near Airport</p>
+        </div>
+        <div class="filter">
+            <div>
+                <i class="fa-solid fa-snowflake"></i>
+            </div>
+            <p>Cold Areas</p>
+        </div>
+        <div class="filter">
+            <div>
+                <i class="fa-solid fa-person-swimming"></i>
+            </div>
+            <p>Pools</p>
+        </div>
+        <div class="filter">
+            <div>
+                <i class="fa-solid fa-wifi"></i>
+            </div>
+            <p>Wifi</p>
+        </div>
+        <div class="tax-toggle ms-auto">
+            <div class="form-check-reverse form-switch">
+                <input type="checkbox"
+                class="form-check-input"
+                role="switch"
+                id="flexSwitchCheckDefault">
+                <label for="flexSwitchCheckDefault" class="form-check-label">
+                    Display Total After Taxes
+                </label>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h1><u><i>All Listings</i></u></h1>
+    <br>
+    <!-- <form action="/listings/new">
+        <button>Create New Listing</button>
+    </form> -->
+    <!-- Commented out cuz Bootstrap se navbar import krke change krlia hai -->
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for(let listing of allListings){ %>
+            <a href="/listings/<%= listing.id %>" class="listing-card">
+                <div class="card col listings-card">
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
+                    <div class="card-img-overlay">Know More</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><i><u><%= listing.title %></u></i></b>
+                            <br>
+                            &#8377;&nbsp;<%= listing.price.toLocaleString("en-IN") %> / night
+                            <i class="tax">&nbsp;&nbsp;+18% GST</i>
+                            <br>
+                            <%= listing.location %>
+                        </p>
+                    </div>
+                </div>
+            </a>    
+            <br> <br>
+        <% } %>
+    </div>
+    <script>
+        let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+        taxSwitch.addEventListener("click", function(){
+            let taxInfo = document.getElementsByClassName("tax");
+            for(info of taxInfo){
+                if(info.style.display != "inline"){
+                    info.style.display = "inline";
+                }else{
+                    info.style.display = "none";
+                };
+            };
+        });
+    </script>
+    <!-- <ul>
+        <% for(let listing of allListings){ %>
+            <li><a href="/listings/<%= listing._id %>"><%= listing.title %></a></li>
+        <% } %>
+    </ul> -->
+    <!-- above command is commented out because hmne cards bna liye hain jo pictures ke saath display kr rhe hain -->
+</body>
