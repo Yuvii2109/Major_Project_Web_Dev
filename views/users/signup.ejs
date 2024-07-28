@@ -1,0 +1,56 @@
+<!-- views users signup.ejs code -->
+
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <h1><u><i>SignUp for WanderLust -</i></u></h1>
+            <br> <br>
+            <form action="/signup" method="post" class="needs-validation" novalidate>
+                <div>
+                    <label for="username" class="form-label">
+                        <b><u><i>Username -</i></u></b>
+                    </label>
+                    <input type="text" 
+                    name="username" 
+                    id="username" 
+                    class="form-control"
+                    required>
+                    <div class="valid-feedback">Looks Good!</div>
+                    <div class="invalid-feedback">Invalid Input!</div>
+                </div>
+                <br>
+                <div>
+                    <label for="email" class="form-label">
+                        <b><u><i>Email -</i></u></b>
+                    </label>
+                    <input type="email" 
+                    name="email" 
+                    id="email" 
+                    class="form-control" 
+                    unique
+                    required>
+                    <div class="valid-feedback">Looks Good!</div>
+                    <div class="invalid-feedback">Invalid Input!</div>
+                </div>
+                <br> 
+                <div>
+                    <label for="password" class="form-label">
+                        <b><u><i>Password -</i></u></b>
+                    </label>
+                    <input type="password" 
+                    name="password" 
+                    id="password" 
+                    class="form-control"
+                    required>
+                    <div class="valid-feedback">Looks Good!</div>
+                    <div class="invalid-feedback">Invalid Input!</div>
+                </div>
+                <br> <br>
+                <button class="btn btn-outline-dark"><b><u><i>SignUp</i></u></b></button>
+            </form>
+            <br>
+            <p>Already have an account? &nbsp;<a href="/login"><b><i>Login</i></b></a></p>
+        </div>
+    </div>
+</body>
