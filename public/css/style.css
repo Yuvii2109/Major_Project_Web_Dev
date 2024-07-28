@@ -1,0 +1,16 @@
+/* public style.css code */
+
+body{
+    background-color: blanchedalmond;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 35vh;
+}
+button{
+    background-color: black;
+    color: blanchedalmond;
+    width: 100px;
+    height: 30px;
+    font-weight: 700;
+    font-style: italic;
+}
